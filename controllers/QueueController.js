@@ -8,8 +8,12 @@ class QueueController {
   }
 
   static publishMessageToQueue(req, res, next) {
-    const messages = QueueService.getAvailableMessages();
-    res.json(messages);
+    const { message } = req.body;
+    if(!message) {
+      res.status(400).send({ error: 'A message is required' })
+    }
+    const createdMessage = QueueService.publishMessage(message);
+    res.json(createdMessage);
   }
 }
 

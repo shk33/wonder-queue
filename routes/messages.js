@@ -6,6 +6,6 @@ const QueueController = require('../controllers/QueueController');
 router.get('/', QueueController.getAvailableMessageList);
 
 /* POST Publish a message to Queue */
-router.post('/', QueueController.getAvailableMessageList);
+router.post('/', QueueController.publishMessageToQueue);
 
 module.exports = router;

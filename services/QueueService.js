@@ -11,6 +11,7 @@ class QueueService {
   static publishMessage(messageString) {
     const newMessage = new QueueMessage(messageString);
     messages.push(newMessage);
+    return newMessage.getPublicVersion();
   }
 }
 

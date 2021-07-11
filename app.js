@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000;
 
 const indexRouter = require('./routes/index');
@@ -11,6 +12,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// parse application/json
+app.use(bodyParser.json())
 
 app.use('/', indexRouter);
 app.use('/messages', messagesRouter);
