@@ -1,6 +1,7 @@
 'use strict';
 const { v4: uuidv4 } = require('uuid');
 const { VISIBLE_STATUS, PROCESSING_STATUS } = require('./QueueMessageStatus');
+const VISIBILITY_TIMEOUT_MILISECONDS = process.env.VISIBILITY_TIMEOUT || 15000;
 class QueueMessage {
   constructor(message) {
     this.status = VISIBLE_STATUS;
@@ -27,7 +28,7 @@ class QueueMessage {
           this.timeoutVisibilityFn = null;
           console.log(`Timeout Mesage ID: ${this.id} will be visible again`); 
       }
-      , 15000
+      , VISIBILITY_TIMEOUT_MILISECONDS
     );
   }
 
