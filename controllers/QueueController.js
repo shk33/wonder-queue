@@ -2,8 +2,13 @@
 const QueueService = require('../services/QueueService');
 
 class QueueController {
-  static getAvailableMessageList(req, res, next) {
-    const messages = QueueService.getAvailableMessages();
+  static getMessageList(req, res, next) {
+    const messages = QueueService.getMessageList();
+    res.json(messages);
+  }
+
+  static pollMessages(req, res, next) {
+    const messages = QueueService.pollMesageList();
     res.json(messages);
   }
 
