@@ -11,6 +11,11 @@ class QueueService {
     return messages.map(m => m.getPublicVersion());
   }
 
+  static cleanMessageList() {
+    messages.forEach(m => m.finish());
+    messages = [];
+  }
+
   static pollMesageList() {
     const availableMessages = messages.filter(m => m.status === VISIBLE_STATUS);
     availableMessages.forEach(m => m.markAsProcessing());

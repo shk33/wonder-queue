@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha 'test/**/*.test.js'"
   },
   "author": "Miguel Coronel",
   "license": "ISC",
@@ -18,6 +18,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "mocha": "^9.0.2",
     "nodemon": "^2.0.12"
   }
 }
