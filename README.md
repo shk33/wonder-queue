@@ -12,6 +12,11 @@ Developed using node 12
 
 Server starts at `http://localhost:3000`
 
+## Testing
+
+A simple test suit with mocha.
+Run tests `npm run test`
+
 ## Producer API Documentation
 
 **Post a Message to queue**
