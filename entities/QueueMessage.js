@@ -14,22 +14,28 @@ class QueueMessage {
     this.startVisibilityTimeout();
   }
 
+  finish() {
+    if(this.timeoutVisibilityFn){
+      clearTimeout(this.timeoutVisibilityFn);
+    }
+  }
+
   startVisibilityTimeout() {
     this.timeoutVisibilityFn = setTimeout(
-        () => {
-            this.status = VISIBLE_STATUS;
-            this.timeoutVisibilityFn = null;
-            console.log(`Timeout Mesage ID: ${this.id} will be visible again`); 
-        }
-        , 15000
+      () => {
+          this.status = VISIBLE_STATUS;
+          this.timeoutVisibilityFn = null;
+          console.log(`Timeout Mesage ID: ${this.id} will be visible again`); 
+      }
+      , 15000
     );
   }
 
   getPublicVersion() {
     return {
-        id: this.id,
-        message: this.message,
-        status: this.status,
+      id: this.id,
+      message: this.message,
+      status: this.status,
     }
   }
 }
